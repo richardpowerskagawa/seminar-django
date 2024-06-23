@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}seminar App{% endblock %}
+{% block h1 %}seminar App{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-9">
+      {% for item in object_list %}
+        <div class="p-4 m-4 bg-light border border-success rounded">
+          <h2 class="text-success">{{ item.title }}</h2>
+          <img src="{{ item.thumbnail.url }}" class="img-thumbnail" />
+          <h6>カテゴリ：{{ item.category }}</h6>
+          <div class="mt-3">
+            <a href="{% url 'detail-seminar' item.pk %}"> to detail page </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="col-3">
+      <h2> ranking top 2</h2>
+      {% for ranking_seminar in page_obj %}
+        <div class="p-4 m-4 bg-light border border-success rounded">
+          <h3 class="text-success h5">{{ ranking_seminar.title }}</h3>
+          <img src="{{ ranking_seminar.thumbnail.url }}" class="img-thumbnail" />
+          <h6>rating {{ ranking_seminar.avg_rating|floatformat:2 }}点</h6>
+          <a href="{% url 'detail-seminar' ranking_seminar.pk %}"> to detail page</a>
+        </div>
+      {% endfor %}
+      {% include 'seminar/components/pagination.html' %}
+    </div>
+  </div>
+{% endblock %}
