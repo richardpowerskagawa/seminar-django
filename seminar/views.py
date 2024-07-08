@@ -43,6 +43,10 @@ class DetailSeminarView(LoginRequiredMixin, DetailView):
     model = Seminar
 
 
+
+# when using class-based views (CBVs) like CreateView, you don’t manually define the form in your forms.py.
+#  Instead, Django auto-generates the form based on the model and fields specified in the view.
+# The CreateView auto-generates a form based on the model and fields you specify. Here’s how it works:
 class CreateSeminarView(LoginRequiredMixin, CreateView):
     template_name = 'seminar/seminar_create.html'
     model = Seminar
@@ -105,3 +109,17 @@ class CreateReviewView(LoginRequiredMixin,CreateView):
 
     def get_success_url(self):
         return reverse('detail-seminar', kwargs={'pk': self.object.seminar.id})
+
+
+def upload_video(request, seminar_id):
+    seminar = get_object_or_404(Seminar, pk=seminar_id)
+    if request.method == 'POST':
+        form = VideoForm(request.POST, request.FILES)
+        if form.is_valid():
+            video = form.save(commit=False)
+            video.seminar = seminar
+            video.save()
+            return redirect('seminar_detail', pk=seminar.id)
+    else:
+        form = VideoForm()
+    return render(request, 'seminar/upload_video.html', {'form': form, 'seminar': seminar})
