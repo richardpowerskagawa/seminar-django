@@ -10,6 +10,7 @@ urlpatterns = [
     path('seminar/<int:pk>/delete/', views.DeleteSeminarView.as_view(), name='delete-seminar'),
     path('seminar/<int:pk>/update/', views.UpdateSeminarView.as_view(), name='update-seminar'),
     path('seminar/<int:seminar_id>/review/', views.CreateReviewView.as_view(), name='review'),
+    path('seminar/<int:seminar_id>/upload-video/', views.upload_video, name='upload-video'),  # Add this line
 
 ]
 

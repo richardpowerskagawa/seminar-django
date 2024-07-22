@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
@@ -13,6 +13,9 @@ from django.views.generic import (
     )
 from .models import Seminar, Review
 from .consts import ITEM_PER_PAGE
+from .forms import VideoForm
+from .models import Seminar, Video
+
 
 def index_view(request):
     object_list = Seminar.objects.order_by('-id')
