@@ -61,7 +61,7 @@ class CreateSeminarView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('detail-book', kwargs={'pk': self.object.book.id})
+        return reverse('detail-seminar', kwargs={'pk': self.object.id})
 
 
 class DeleteSeminarView(LoginRequiredMixin, DeleteView):
