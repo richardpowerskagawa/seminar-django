@@ -29,6 +29,12 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
+# ALLOWED_HOSTS = [
+#     'localhost',
+#     '127.0.0.1',
+#     'ca50-153-139-8-17.ngrok-free.app',
+#     'fe8a-153-139-8-17.ngrok-free.app'
+# ]
 
 # Application definition
 
