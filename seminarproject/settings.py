@@ -36,6 +36,10 @@ ALLOWED_HOSTS = [
     'fe8a-153-139-8-17.ngrok-free.app'
 ]
 
+# chatgpt told me to add this line 
+CSRF_TRUSTED_ORIGINS = [
+    'https://fe8a-153-139-8-17.ngrok-free.app',
+]
 # Application definition
 
 INSTALLED_APPS = [
