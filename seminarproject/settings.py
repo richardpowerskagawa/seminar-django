@@ -129,9 +129,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATIC_ROOT = BASE_DIR 
 
 # MEDIA_URL = '/media/'
-# it is googd. I can uoload by this line.
+
+#Hey it is googd. I can uoload by this line.
+# it would be accessible at https://<your-bucket>.s3.amazonaws.com/media/avatar.jpg.
 MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/'
 # MEDIA_URL = 'https://nexter555.s3.ap-northeast-1.amazonaws.com/'
+# since you are using S3 for media storage, this setting is mainly used for local development or fallback purposes.
 MEDIA_ROOT = BASE_DIR / 'media'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
