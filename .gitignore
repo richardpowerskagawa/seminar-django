@@ -7,7 +7,7 @@ venv/
 /media/*
 !/media/.gitkeep
 
-/static/*
-!/static/.gitkeep
+/staticfiles/*
+!/staticfiles/.gitkeep
 
 db.sqlite3
