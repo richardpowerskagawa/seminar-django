@@ -14,6 +14,7 @@ from pathlib import Path
 
 import os
 from dotenv import load_dotenv
+# for feroku deploy
 import dj_database_url
 
 load_dotenv()
@@ -56,6 +57,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    #  for heroku deploy
     'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -97,6 +99,7 @@ WSGI_APPLICATION = "seminarproject.wsgi.application"
 #     }
 # }
 
+# for heroku deploy
 DATABASES = {
     'default': dj_database_url.config(
         default='postgres://localhost/your-local-db-name'
@@ -144,6 +147,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # STATIC_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/'
 # Static files (CSS, JavaScript, images)
 # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# for heroku deploy
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # MEDIA_URL = '/media/'
