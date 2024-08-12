@@ -1,1 +1,1 @@
-web: gunicorn bookproject.wsgi
+web: gunicorn seminarproject.wsgi

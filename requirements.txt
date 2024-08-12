@@ -10,6 +10,7 @@ django-storages==1.14.4
 docutils==0.16
 ffmpeg-python==0.2.0
 future==1.0.0
+isort==5.13.2
 jmespath==1.0.1
 mypy-extensions==1.0.0
 packaging==24.1
