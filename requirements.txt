@@ -20,6 +20,7 @@ pathspec==0.12.1
 pillow==10.3.0
 platformdirs==4.2.2
 pyasn1==0.6.0
+psycopg2-binary>=2.9,<3.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
 PyYAML==6.0.1
