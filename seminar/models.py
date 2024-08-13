@@ -1,3 +1,5 @@
+import uuid
+import os
 from django.db import models
 
 # Create your models here.
@@ -7,10 +9,16 @@ RATE_CHOICES = [ (x, str(x)) for x in range(0, MAX_RATE + 1)]
 
 CATEGORY = (('business', 'ビジネス'), ('life', '生活'),('other', 'その他'))
 
+# for heroku prod
+def get_upload_to(instance, filename):
+    ext = filename.split('.')[-1]
+    new_filename = f"{uuid.uuid4()}.{ext}"
+    return os.path.join('seminar_thumbnails/', new_filename)
+
 class Seminar(models.Model):
     title = models.CharField(max_length=100)
     text = models.TextField()
-    thumbnail = models.ImageField(null=True, blank=True)
+    thumbnail = models.ImageField(upload_to=get_upload_to, null=True, blank=True)
     category = models.CharField(
         max_length=100,
         choices=CATEGORY
