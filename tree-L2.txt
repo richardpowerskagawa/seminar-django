@@ -1,5 +1,5 @@
 .
-├── Profile
+├── Procfile
 ├── accounts
 │   ├── __init__.py
 │   ├── __pycache__
@@ -24,7 +24,7 @@
 ├── db.sqlite3
 ├── manage.py
 ├── media
-├── requirement.txt
+├── requirements.txt
 ├── seminar
 │   ├── __init__.py
 │   ├── __pycache__
@@ -49,7 +49,8 @@
 │   └── wsgi.py
 ├── staticfiles
 │   ├── admin
-│   └── seminar
+│   ├── seminar
+│   └── staticfiles.json
 ├── templates
 │   ├── base.html
 │   └── registration
@@ -61,4 +62,4 @@
     ├── lib64 -> lib
     └── pyvenv.cfg
 
-29 directories, 32 files
+29 directories, 33 files
