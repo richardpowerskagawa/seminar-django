@@ -39,11 +39,17 @@ class Review(models.Model):
         return self.title 
 
 
+# for heroku prod
+def get_video_upload_to(instance, filename):
+    ext = filename.split('.')[-1]
+    new_filename = f"{uuid.uuid4()}.{ext}"
+    return os.path.join('seminar_videos/', new_filename)
+
 class Video(models.Model):
     seminar = models.ForeignKey(Seminar, on_delete=models.CASCADE, related_name='videos')
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
-    video_file = models.FileField(upload_to='seminar_videos/')
+    video_file = models.FileField(upload_to=get_video_upload_to)
     upload_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
