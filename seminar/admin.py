@@ -4,7 +4,7 @@ from django.contrib import admin
 from .models import Seminar, Review, Video
 
 # admin.site.register(Seminar)
-admin.site.register(Review)
+# admin.site.register(Review)
 # admin.site.register(Video)
 
 
