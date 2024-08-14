@@ -6,7 +6,16 @@
 {% block content %}
   <div class="p-4 m-4 bg-light border border-success rounded">
     <h2 class="text-success">{{ object.title }}</h2>
+
+        <!-- Thumbnail Image -->
+    {% if object.thumbnail %}
+      <img src="{{ object.thumbnail.url }}" alt="{{ object.title }}" class="img-fluid mb-3">
+    {% else %}
+      <p>No thumbnail available.</p>
+    {% endif %}
+
     <p>{{ object.text }}</p>
+
     <div class="border p-4 mb-2">
       {% for review in object.review_set.all %}
         <div>
