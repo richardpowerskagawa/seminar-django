@@ -4,7 +4,31 @@
 
 {% block h1%} seminar list {% endblock%}
 
+
 {% block content %}
+  {% for item in object_list %}
+    <div class="p-4 m-4 bg-light border border-success rounded">
+      <h2 class="text-success">{{ item.title }}</h2>
+      
+      <!-- Thumbnail Image -->
+      {% if item.thumbnail %}
+        <img src="{{ item.thumbnail.url }}" alt="{{ item.title }}" class="img-fluid mb-3" style="max-width: 200px;">
+      {% else %}
+        <p>No thumbnail available.</p>
+      {% endif %}
+      
+      <h6>カテゴリ：{{ item.category }}</h6>
+      <div class="mt-3">
+        <a href="{% url 'detail-seminar' item.pk %}">To Detail Page</a>
+      </div>
+    </div>
+  {% endfor %}
+  {% include 'seminar/components/pagination.html' %}
+{% endblock %}
+
+
+
+<!-- {% block content %}
   {% for item in object_list %}
     <div class="p-4 m-4 bg-light border border-success rounded">
       <h2 class="text-success">{{ item.title }}</h2>
@@ -15,4 +39,5 @@
     </div>
   {% endfor %}
   {% include 'seminar/components/pagination.html' %}
-{% endblock %}
+{% endblock %} -->
+
