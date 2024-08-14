@@ -1,6 +1,7 @@
 import uuid
 import os
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 from .consts import MAX_RATE
@@ -34,7 +35,9 @@ class Review(models.Model):
     text = models.TextField()
     rate = models.IntegerField(choices=RATE_CHOICES)
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(default=timezone.now) 
 
+  
     def __str__(self):
         return self.title 
 
