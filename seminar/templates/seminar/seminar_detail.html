@@ -16,6 +16,30 @@
 
     <p>{{ object.text }}</p>
 
+   <!-- Videos List -->
+  <div class="border p-4 mb-2">
+    <h3 class="h4">Uploaded Videos</h3>
+    {% if videos %}
+      <ul>
+        {% for video in videos %}
+          <li>
+            <h4>{{ video.title }}</h4>
+            <p>{{ video.description }}</p>
+            <!-- Display video using a video tag -->
+            <video width="320" height="240" controls>
+              <source src="{{ video.video_file.url }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No videos uploaded yet.</p>
+    {% endif %}
+  </div>
+
+    
+    <!-- Reviews Section -->
     <div class="border p-4 mb-2">
       {% for review in object.review_set.all %}
         <div>

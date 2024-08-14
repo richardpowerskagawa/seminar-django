@@ -45,7 +45,11 @@ class DetailSeminarView(LoginRequiredMixin, DetailView):
     template_name = 'seminar/seminar_detail.html'
     model = Seminar
 
-
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['videos'] = self.object.videos.all()  # Add this line to get the related videos
+        return context
+    
 
 # when using class-based views (CBVs) like CreateView, you don’t manually define the form in your forms.py.
 #  Instead, Django auto-generates the form based on the model and fields specified in the view.
