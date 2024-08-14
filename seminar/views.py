@@ -114,15 +114,21 @@ class CreateReviewView(LoginRequiredMixin,CreateView):
         return reverse('detail-seminar', kwargs={'pk': self.object.seminar.id})
 
 
+
 def upload_video(request, seminar_id):
+    print("Entering upload_video view")
     seminar = get_object_or_404(Seminar, pk=seminar_id)
     if request.method == 'POST':
+        print("Handling POST request")
         form = VideoForm(request.POST, request.FILES)
         if form.is_valid():
+            print("Form is valid")
             video = form.save(commit=False)
             video.seminar = seminar
             video.save()
-            return redirect('seminar_detail', pk=seminar.id)
+            return redirect('detail-seminar', pk=seminar.id)
+        else:
+            print("Form is invalid")
     else:
         form = VideoForm()
     return render(request, 'seminar/upload_video.html', {'form': form, 'seminar': seminar})
