@@ -15,7 +15,7 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 # for feroku deploy
-import dj_database_url
+import dj_database_url # type: ignore
 
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
