@@ -40,6 +40,7 @@ class ListSeminarView(LoginRequiredMixin,  ListView):
     template_name = 'seminar/seminar_list.html'
     model = Seminar
     paginate_by = ITEM_PER_PAGE
+    context_object_name = 'object_list'
 
 class DetailSeminarView(LoginRequiredMixin, DetailView):
     template_name = 'seminar/seminar_detail.html'
