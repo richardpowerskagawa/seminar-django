@@ -5,7 +5,7 @@
 
 {% block content %}
   <div class="row">
-    <div class="col-9">
+    <div class="col-12 col-lg-9">
       {% for item in object_list %}
         <div class="p-4 m-4 bg-light border border-success rounded">
           <h2 class="text-success">{{ item.title }}</h2>
@@ -17,7 +17,7 @@
         </div>
       {% endfor %}
     </div>
-    <div class="col-3">
+    <div class="col-12 col-lg-3">
       <h2> ranking top 2</h2>
       {% for ranking_seminar in page_obj %}
         <div class="p-4 m-4 bg-light border border-success rounded">
