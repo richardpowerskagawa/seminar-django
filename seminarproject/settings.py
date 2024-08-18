@@ -143,16 +143,9 @@ AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
 AWS_S3_REGION_NAME = os.getenv("AWS_S3_REGION_NAME")
 
-# STATIC_URL = "/static/"
-# for heroku deploy
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# MEDIA_URL = '/media/'
-# MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/"
-# MEDIA_ROOT = BASE_DIR / "media"
-
 
 if ENVIRONMENT == 'production':
+     # Static files settings for production
     STATIC_URL = '/static/'  
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/"
@@ -172,16 +165,9 @@ LOGOUT_REDIRECT_URL = 'index'
 
 
 
-# AWS_S3_ENDPOINT_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 # STATIC_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/'
 # Static files (CSS, JavaScript, images)
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # MEDIA_URL = 'https://nexter555.s3.ap-northeast-1.amazonaws.com/'
-# since you are using S3 for media storage, this setting is mainly used for local development or fallback purposes.
-# Hey it is googd. I can uoload by this line.
-# it would be accessible at https://<your-bucket>.s3.amazonaws.com/media/avatar.jpg.
