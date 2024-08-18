@@ -54,7 +54,7 @@
         <p>No reviews yet. Be the first to leave a review!</p>
       {% endfor %}
     </div>
-    <a href="{% url 'list-seminar="btn btn-primary">一覧へ</a>
+    <a href="{% url 'list-seminar' %}" class="btn btn-primary">一覧へ</a>
     <a href="{% url 'review' object.pk %}" class="btn btn-primary">レビューする</a>
     <a href="{% url 'update-seminar' object.pk %}" class="btn btn-primary">編集する</a>
     <a href="{% url 'delete-seminar' object.pk %}" class="btn btn-primary">削除する</a>
